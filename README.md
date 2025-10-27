@@ -37,15 +37,15 @@ db.createUser({ user: "aacuser", pwd: passwordPrompt(), roles:[{role:"readWrite"
 
 ## Additional Reflections
 
-1) Maintainable, readable, adaptable code
+1) Maintainable, readable, adaptable code - 
 
 I wrote a small AnimalShelter class to handle MongoDB connections and CRUD. Keeping database logic in one place made the dashboard code simple: callbacks just call read(query) and render results. The advantages were obvious when I moved from Project One to Project Two. I didn’t rewrite database code; I reused it. In the future, I can plug the same module into another Dash app, a Flask API, or even a CLI tool by only changing constructor args such as host, port, and db names. Having clear names, short functions, and early returns also helped with readability.
 
-2) My approach to problems as a computer scientist
+2) My approach to problems as a computer scientist - 
 
 I start with the requirements, then map them to data and behavior. For this project I listed each rescue role and turned it into a MongoDB query: allowed breeds, age windows in weeks, and the required sex status. After that I sketched the MVC: MongoDB as Model, Dash widgets as View, and callbacks plus the CRUD class as Controller. Compared to past assignments, I spent more time isolating concerns so the UI didn’t know anything about connection strings or auth. If I build future databases for a client, I’ll keep doing domain-driven queries first, then wrap them behind clean interfaces, and finally build one or two automated tests to make sure the filters don’t regress.
 
-3) What computer scientists do and why it matters
+3) What computer scientists do and why it matters - 
 
 We turn messy data and fuzzy goals into tools people can actually use. Here, a small nonprofit can quickly find dogs that fit strict training profiles. That saves time, reduces manual filtering, and helps them place the right animals into the right programs faster. Even a lightweight dashboard can meaningfully improve decisions and outcomes when the data is current and the interaction is simple.
 
